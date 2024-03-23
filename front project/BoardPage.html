@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'GmarketSansMedium';
+        }
+
+        html, body {
+            height: 100%;
+            /* background-color: #F1F1F1; */
+        }
+        
+        .header {
+            width: 100%;
+            height: 100px;
+            position: relative;
+            top: 0;
+            background-color: #F8F9FC;
+        }
+
+        .boardtitleLine {
+            width:100%;
+            height: 3px;
+            border: 0;
+            background-color: #8c52ff;
+        }
+
+        .titleLine {
+            width:95%;
+            margin-left: 2%;
+            margin-right: 2%;
+            height: 2px;
+            border: 0;
+            background-color: grey;
+        }
+
+        .replyline {
+            width:95%;
+            margin-left: 2%;
+            margin-right: 2%;
+            height: 2px;
+            border: 0;
+            background-color: #8c52ff;
+        }
+
+        .replyregistline {
+            width:95%;
+            margin-top: 20%;
+            margin-left: 2%;
+            margin-right: 2%;
+            height: 2px;
+            border: 0;
+            background-color: #8c52ff;
+        }
+
+        .replyregistbottomline {
+            width:95%;
+            margin-top: 3%;
+            margin-left: 2%;
+            margin-right: 2%;
+            height: 2px;
+            border: 0;
+            background-color: #8c52ff;
+        }
+
+        .wrapper {
+            height: auto;
+            min-height: 100%;
+            width: 68%;
+            margin-top: 50px;
+            padding-bottom: 100px;
+            margin-left: 16%;
+            margin-right: 16%;
+        }
+
+        .boardname {
+            font-size: 32px;
+        }
+
+        .boardtitle {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .writer {
+            font-size: 16px;
+            margin-top: 25px;
+        }
+
+        .date {
+            font-size: 16px;
+            margin-top: 25px;
+        }
+
+        .boardtitlediv {
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 2%;
+            float: left;
+        }
+
+        .writerdiv {
+            margin-left: 43%;
+            float:left;
+        }
+
+        .datediv {
+            padding-right: 10px;
+            margin-right: 2%;
+            float:right;
+        }
+
+        .replytitlediv {
+            margin-top: 10%;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 2%;
+            float: left;
+        }
+
+        .replywriterdiv {
+            margin-top:2%;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 2%;
+            float: left;
+        }
+
+        .replycontentdiv {
+            margin-top:2%;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 2%;
+            float: left;
+        }
+
+        .closebuttondiv {
+            margin-top:2%;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-right: 5%;
+            float: right;
+        }
+        
+        .replydatediv {
+            margin-top:2%;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 22%;
+            float: left;
+        }
+
+        .registreplywriterdiv{
+            margin-top:2%;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 2%;
+            float: left;
+        }
+
+        .registreplydiv {
+            margin-top: 1%;
+            margin-left: 5%;
+            float: left;
+        }
+
+        .maincontent {
+            max-width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 3%;
+        }
+
+        .replytitle {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .footer {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-color: #F8F9FC;
+        }
+
+        .rightthings{
+            margin-right:50px;
+            margin-top:25px;
+            float: right;
+            font-size: 13px;
+        }
+
+        .leftthings{
+            margin-left:50px;
+            margin-top:45px;
+            float: left;
+            font-size: 13px;
+        }
+
+        .ahub{
+            font-size: 15px;
+            font-weight: bold;
+            margin-right:5px;
+        }
+
+        .closebutton{
+            border:0px;
+            cursor: pointer;
+        }
+
+        .btn {
+            background-color: #8c52ff;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-style: bold;
+            float: left;
+            margin-left: 470%;
+        }
+
+        .loginbtn {
+            background-color: #8c52ff;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-style: bold;
+            float: right;
+            margin-top: 1.5%;
+            margin-right: 2%;
+        }
+
+        .box {
+            width:510%;
+            height: 100px;
+        }
+
+        .logoimage {
+            width:100px;
+        }
+
+        .logo {
+            float:left;
+            cursor: pointer;
+        }
+
+        ul li {
+                list-style: none;
+            }
+
+        a{
+                text-decoration: none;
+                color:#333;
+            }
+
+        #menu {
+            text-align: center;
+            float:left;
+            margin-left: 2%;
+            margin-top: 2%;
+            line-height: 30px; 
+            cursor: pointer;
+        }
+
+        #menu > ul > li {
+            float:left;
+            width:140px;
+            position:relative;
+        }
+
+        #menu > ul > li > ul {
+            width:130px;
+            display:none;
+            position: absolute;
+            font-size:14px;
+        }
+
+        #menu > ul > li:hover > ul {
+            display:block;
+        }
+
+        #menu > ul > li > ul > li:hover {
+            background: #8c52ff;
+            transition: ease 1s;
+        }
+
+        textarea::placeholder {
+            font-size:15px;
+            padding-left: 1%;
+            padding-top: 1%;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="purple.png" class="logoimage">
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="#">일반 게시판 ▼</a>
+                    <ul>
+                        <li><a href="#">페어 정보</a></li>
+                        <li><a href="#">뉴스 정보</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">정보 게시판 ▼</a>
+                    <ul>
+                        <li><a href="#">후기 게시판</a></li>
+                        <li><a href="#">레시피 공유 게시판</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="loginbtndiv">
+            <button type="button" class="loginbtn" onclick="login()">로그아웃</button>
+        </div> 
+    </header>
+    <div class="wrapper">
+        <script src="BoardPage.js"></script>
+        <section>
+            <h1 class="boardname">후기 게시판</h1>
+            <hr class="boardtitleLine">
+        </section>
+        <div class="boardtitlediv">
+            <h2 class="boardtitle"> 간으로 써내려간 지난날의 1-10만원 와인</h2>
+        </div>
+        <div class="writerdiv">
+            <h3 class="writer">안경따거</h3>
+        </div>
+        <div class="datediv">
+            <h3 class="date">2024.03.16 9:31:01</h3>
+        </div>
+        <hr class="titleLine">
+        <div class="maincontent">
+            <p>
+                오늘은 그냥 짧디짧은 제 구력에 한번씩 스파크를 튀긴 와인들을 한번 써볼려 합니다. 
+                지극히 사심이 가득히 담긴 글이라 지나가셔도 됩니다. 
+                <br><br>
+                이 글은 제 개인이 글이라 항상 공지에 있는 추천 와인들처럼, 구하기 쉽거나 인지도 있는
+                친구들은 별로 안나오고, 심지어 안팔려서 국내에서 더이상 수입이 멈춘 안타까운 녀석들도 있으니
+                <br><br>
+                혹여나 글을 읽고 찾으려 해도 생각보다 주변에 안나올수 있는점 양해를^~^
+            </p>
+        </div>
+        <div class="replytitlediv">
+            <h2 class="replytitle">댓글</h2>
+        </div>
+        <hr class="replyline">
+        <div class="replywriterdiv">
+            <p>포도나무지기</p>
+        </div>
+        <div class="replycontentdiv">
+            <p>
+                와 정말 맛있겠네요, 저도 이번 주말에 도전해봐야 할것 같습니다!
+            </p>
+        </div>
+        <div class="replydatediv">
+            <p>2024.03.16 10:29:08</p>
+        </div>
+        <div class="closebuttondiv">
+            <form action="" name="deleteReply" method="post">
+                <button type="button" class="closebutton" onclick="deleteReplyCheck()">
+                    <img src="free-icon-close-button-61155 (1).png">
+                </button>
+            </form>
+        </div>
+        <hr class="replyregistline">
+        <div class="registreplywriterdiv">
+            <span>안경따거</span>
+        </div>
+        <div class="registreplydiv">
+            <form id="comment" action="" name="registReply" method="post">
+                <div class="commentbox">
+                <textarea type="text" class="box" id="reply" placeholder="타인의 권리를 침해하거나 명예를 훼손하는 댓글은 운영원칙 및 관련 법률에 의거, 제재를 받을 수 있습니다." required></textarea>
+                </div>
+                <input type="submit" class="btn" value="등록" onclick="registReplyCheck()">
+            </form>
+        </div>
+        <hr class="replyregistbottomline">
+    </div>
+    <footer class="footer">
+        <div class="leftthings">
+            <p>
+                <span class="ahub">AHUB</span>
+                <span>서비스 소개</span>
+                <span> | </span>
+                <span>서비스 약관</span>
+                <span> | </span>
+                <span>개인정보 처리방침</span>
+                <span> | </span>
+                <span>채용</span>
+            </p>
+        </div>
+        <div class="rightthings">
+            <p>
+                <span>Team Phoenix | 대표: 백동현 | 사업자등록번호:472-56-00332</span><br>
+                <span>주소: 서울특별시 동작구 보라매로 87 SFC빌딩 3층</span><br>
+                <span>Copyright@2024XI#CIQ ALL RIGHTS RESERVED</span>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
