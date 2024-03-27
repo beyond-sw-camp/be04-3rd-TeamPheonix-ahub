@@ -15,12 +15,24 @@
                 <span><a href="registPage.html">회원 가입</a> &nbsp;</span>
             </div>
         </div>
-            <button @click="rememberId">Login</button>
+        <button @click.prevent="tokenCheck">Login</button>
     </form>
 </template>
 
 <script setup>
-
+function tokenCheck() {
+    if(member_id.value == ''){
+        alert('아이디를 입력해주세요.');
+        return false;
+    } else if (member_pwd.value == ''){
+        alert('비밀번호를 입력해주세요.');
+        return false;
+    } else {
+        // 서버 연동하여 토큰값 가져온 후 유효성 검사 코드 추가
+        console.log('로그인 성공');
+        return true;
+    }
+}
 </script>
 
 <style scoped>
