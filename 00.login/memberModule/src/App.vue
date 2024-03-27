@@ -1,8 +1,12 @@
 <script setup>
+
 import registPage from './views/registPage.vue';
 import loginPage from './views/loginPage.vue';
-import profilePage from './views/pofilePage.vue';
+import profilePage from './views/profilePage.vue';
+import { inject } from 'vue'
+
 // import { RouterLink, RouterView } from 'vue-router';
+
 </script>
 
 <template>

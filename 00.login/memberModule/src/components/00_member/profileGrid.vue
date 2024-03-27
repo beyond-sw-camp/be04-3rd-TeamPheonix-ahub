@@ -2,16 +2,16 @@
     <div class="wrapper">
         <div class="left-box item img-box-wrapper">
             <div class="img-box">
-                <img src="resource/cheese-cat.jpg" alt="profile" class="profile-img">
+                <img src="/00.TeamProjects/03.phoenix-front/00.login/resource/cheese-cat.jpg" alt="profile" class="profile-img">
             </div>
         </div>
         <div class="right-box item">
-            <h1>{{ member_id }}</h1>
+            <h1>{{ profile.info.memberId }}</h1>
             <p class="introduction-box">
                 내 소개가 아직 없습니다!
             </p>
         </div>
-
+        
         <div class="left-box item">
             <div>이메일</div>
             <br>
@@ -20,11 +20,11 @@
             <div>핸드폰 번호</div>
         </div>
         <div class="right-box item">
-            <div>{{ member_email }}</div>
+            <div>{{profile.info.memberEmail}}</div>
             <br>
-            <div>{{ member_addr }}</div>
+            <div>{{profile.info.memberAddr}}</div>
             <br>
-            <div>{{ member_phone }}</div>
+            <div>{{profile.info.memberPhone}}</div>
         </div>
     </div>
     <div class="quit-wrapper">
@@ -36,6 +36,31 @@
 </template>
 
 <script setup>
+import { ref, onBeforeMount } from 'vue';
+import axios from 'axios';
+
+// axios로 받아온 데이터를 저장할 profile 객체 생성
+const profile = ref({
+    info: {}    // promise 타입으로 넘어온 객체의 데이터를 사용하기 위해 info 배열에 담아서 꺼내오도록 함
+});
+
+const get = (e) => {
+    axios({
+        url: "http://localhost:8000/member/findMyprofile/user02"
+    }).then((response) => {
+        if(response.status==200){
+            profile.value = { info: response.data };        // profile 객체의 info 배열에 넘어온 데이터를 저장
+            console.log('response.data: ', response.data)
+            console.log('profile: ', profile);
+            console.log('profile.info: ', profile.info)}
+        }).catch((e) => {
+            console.log('데이터 못가져왔다')
+        });
+    }
+    onBeforeMount(() => {
+        get();
+    })
+
 
 </script>
 
@@ -49,7 +74,7 @@
         border-radius: 10px;
         margin: 10px;
         padding: 40px;
-        background-color: #fdfdfd;
+        background-color: #f9f9f9;
     }
 
     .align {
@@ -69,7 +94,8 @@
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        font-size: 10px;
+        font-size: 12px;
+        font-weight: bold;
     }
 
     .modify-btn {
