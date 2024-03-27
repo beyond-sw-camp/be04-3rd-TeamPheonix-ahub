@@ -1,15 +1,15 @@
 <template>
     <div class="wrapper">
         <section>
-            <h1 class="title align">Sign Up</h1>
-            <registInputForm />
-            
+            <loginTitle/>
+            <loginInputForm/>
         </section>
     </div>
 </template>
 
 <script setup>
-    import registInputForm from './registInputForm.vue';
+import loginTitle from '@/components/00_member/loginTitle.vue';
+import loginInputForm from '@/components/00_member/loginInputForm.vue';
 </script>
 
 <style scoped>
@@ -29,16 +29,7 @@
     .wrapper {
         margin: 16vh;
         height: auto;
-        min-height: 100%;
+        /* min-height: 100%; */
     }
 
-    .title {
-        margin-bottom: 50px;
-        font-size: 3.5rem;
-        font-weight: 700;
-    }
-
-    .align {
-        text-align: center;
-    }
 </style>

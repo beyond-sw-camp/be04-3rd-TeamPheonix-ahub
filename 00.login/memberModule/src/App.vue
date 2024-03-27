@@ -1,7 +1,7 @@
 <script setup>
-import registMember from './components/00_member/registMember.vue';
-import loginMember from './components/00_member/loginMember.vue';
-import { RouterLink, RouterView } from 'vue-router';
+import registPage from './views/registPage.vue';
+import loginPage from './views/loginPage.vue';
+// import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
@@ -9,8 +9,8 @@ import { RouterLink, RouterView } from 'vue-router';
   </header>
   <main>
     <!-- <RouterView/> -->
-    <registMember />
-    <!-- <loginMember /> -->
+    <!-- <registPage /> -->
+    <loginPage />
   </main>
   <footer>
 

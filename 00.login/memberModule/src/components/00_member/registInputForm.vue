@@ -8,26 +8,26 @@
             <label>비밀번호</label><br>
             <input class="input-style" type="password" ref="pwd" v-model.trim="member_pwd"><br>
             <label>주소</label><br>
-            <input class="input-style" type="text" ref="addr" v-mode="member_addr"><br>
+            <input class="input-style" type="text" ref="addr" v-model="member_addr"><br>
             <label>이메일</label><br>
             <input class="input-style" type="text" ref="email" v-model.trim="member_email"><br>
             <label>전화번호</label><br>
             <input class="input-style" type="text" ref="phone" v-model.trim="member_phone"><br>
-            <!-- <button @click="requiredText">test</button> -->
         </div>
         <div class="space">
-            <input type="checkbox" id="agreeCheckbox">
+            <input type="checkbox" id="agree_policy">
             <span>By signing up, I agree with the Terms of Use & Privacy Policy</span>
         </div>
         <div class="space">
-            <span @click="changeRouter">Already have an account?Log in</span>
+            <span @click="changeRouter">Already have an account? <a href="#">Log in</a></span>
         </div>
-        <button @click="inputName">Sign up</button>
+        <button @click.prevent="validateForm()">Sign up</button>
     </form>
 </template>
 
 <script setup>
-    import { ref, watch } from 'vue';
+    import { ref } from 'vue';
+    import { useFocus } from '@vueuse/core';
 
     const member_name = ref('');
     const member_id = ref('');
@@ -36,20 +36,34 @@
     const member_email = ref('');
     const member_phone = ref('');
 
-    // // || member_id.value !== '' || member_pwd.value !== '' || member_addr !== '' || member_email.value !== '' || member_phone.value !== ''
-    function inputName() {
+    function validateForm() {
+        var agreementCheckbox = document.getElementById("agree_policy");
+
         if (member_name.value == '') {
             alert('이름을 입력해주세요');
-            $refs.name.focus();
-                // console.log('이름 입력됨');
             return false;
+        } else if(member_id.value == '') {
+            alert('아이디를 입력해주세요');
+            return false;
+        } else if (member_pwd.value == '') {
+            alert('비밀번호를 입력해주세요');
+            return false;
+        } else if (member_addr.value == '') {
+            alert('주소를 입력해주세요');
+            return false;
+        } else if (member_email.value == '') {
+            alert('이메일을 입력해주세요');
+            return false;
+        } else if (member_phone.value == '') {
+            alert('전화번호를 입력해주세요');
+            return false;
+        } else if (!agreementCheckbox.checked) {
+                alert("회원 가입 약관에 동의해주세요.");
+                return false;
+        } else {
+            console.log('회원 가입 완료')
+            return true;
         }
-        // } else {
-        //     console.log('필수 항목 입력 누락');
-        //     alert('이름을 입력해주세요');
-
-        //     return false;
-        // }
     }
 </script>
 
@@ -66,12 +80,6 @@
     padding: 0;
     font-family: 'GmarketSansMedium';
     font-size: 12px;
-}
-
-.title {
-    margin-bottom: 50px;
-    font-size: 3.5rem;
-    font-weight: 700;
 }
 
 .align {
@@ -127,5 +135,4 @@ button {
     font-style: bold;
     width: 30vh;
 }
-
 </style>
