@@ -67,6 +67,7 @@
     .closebutton{
             border:0px;
             cursor: pointer;
+            
         }
 
     .btn {
@@ -141,7 +142,6 @@
         }
 
         .closebuttondiv {
-            margin-top:1%;
             padding-left: 10px;
             padding-right: 10px;
             margin-left: 2%;
@@ -168,7 +168,7 @@
             margin-top: 1%;
             margin-left: 5%;
             float: left;
-            width: 75%;
+            width: 82%;
         }
 
         .replytitle {
