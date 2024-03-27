@@ -1,0 +1,44 @@
+{
+    "reply": [
+      {
+        "replyId": 1,
+        "postId": 1,
+        "replyContent": "",
+        "replyDate": "2024.03.20 17:20",
+        "reportAcceptance": "Y",
+        "useAcceptance": 15,
+        "reportedAcceptance": "N",
+        "memberCode": 2
+      },
+      {
+        "replyId": 2,
+        "postId": 2,
+        "replyContent": "정말 잘 읽었습니다!",
+        "replyDate": "2024.03.20 17:20",
+        "reportAcceptance": "N",
+        "useAcceptance": "Y",
+        "memberCode": 2,
+        "memberNickname": "술좋앙"
+      },
+      {
+        "replyId": 3,
+        "postId": 2,
+        "replyContent": "아주 좋은 글이네요~~",
+        "replyDate": "2024.03.21 13:10",
+        "reportAcceptance": "N",
+        "useAcceptance": "Y",
+        "memberCode": 1,
+        "memberNickname": "술술술술들어간다"
+      },
+      {
+        "replyId": 4,
+        "postId": 2,
+        "replyContent": "최고에요^~^",
+        "replyDate": "2024.03.23 19:20",
+        "reportAcceptance": "Y",
+        "useAcceptance": "Y",
+        "memberCode": 3,
+        "memberNickname": "포도나무최고"
+      }
+    ]
+  }
