@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <style>
-@font-face {
+<head>
+<meta charset="UTF-8">
+<meta .name="viewport" content="width=device-width, initial-scale=1.0">
+<title>레시피 공유 게시판</title>
+<style>
+    @font-face {
         font-family: 'GmarketSansMedium';
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
         font-weight: normal;
@@ -20,898 +19,83 @@
      top: 0;
      background-color: #F8F9FC;
  } 
- 
- .wrapper{
+   .wrapper{
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 12px;
 
- }
-  .text-wrapper {
-    position: absolute;
-    top: 61px;
-    left: 1501px;
-    color: #424856;
-    font-size: 12px;
-    white-space: nowrap;
-  }
-  .text-wrapper-2 {
-    position: absolute;
-    top: 5px;
-    left: 80px;
-    color: #424856;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-3 {
-    top: 5px;
-    left: 179px;
-    color: #424856;
-    font-size: 16px;
-    position: absolute;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-4 {
-    top: 5px;
-    left: 274px;
-    color: #424856;
-    font-size: 16px;
-    position: absolute;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-5 {
-    top: 5px;
-    left: 421px;
-    color: #424856;
-    font-size: 16px;
-    position: absolute;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-6 {
-    top: 5px;
-    left: 468px;
-    color: #424856;
-    font-size: 16px;
-    position: absolute;
-    white-space: nowrap;
-  }
+  } 
+    table {
+        margin: auto;
+        width: 80%;
+        height: 5000%;
+        border-radius: 5px;
+        border-collapse: collapse;
+        border-top: none;
+    }
+    .post{
+        font-size: 30px;
 
-  .text-wrapper-7 {
-    top: 36px;
-    left: 12px;
-    color: #565d6d;
-    font-size: 14px;
-    position: absolute;
-    white-space: nowrap;
-  }
-  
-  
-  .text-wrapper-8 {
-    top: 6px;
-    left: 12px;
-    color: #ffffff;
-    font-size: 14px;
-    position: absolute;
-    white-space: nowrap;
-  }
-  
-  .container {
-    width: 1389px;
-    height: 89px;
-    top: 222px;
-    left: 281px;
-    background-color: #ffffff;
-    border-radius: 4px;
-    position: absolute;
-    box-shadow: 0px 0px 1px #171a1f12, 0px 0px 2px #171a1f1f;
-  }
-  
-  .text-wrapper-9 {
-    top: 30px;
-    left: 37px;
-    color: #9095a1;
-    font-size: 16px;
+    }
+    .header1 {
+        background-color: rgb(218, 231, 255);
+        height: 80px;
+        font-size: 18px;
+        text-align: center;
 
-    position: absolute;
+    }
+    .header1 .title{
+        text-align: left;
+    }
+    .header2 {
+        height: 30px;
+        font-size: 18px;
 
-    white-space: nowrap;
-  }
-  .text-wrapper-10 {
-    top: 30px;
-    left: 164px;
-    color: #9095a1;
-    font-size: 16px;
-
-    position: absolute;
-
-    white-space: nowrap;
-  }
-  .text-wrapper-11 {
-    top: 30px;
-    left: 298px;
-    color: #9095a1;
-    font-size: 16px;
-
-    position: absolute;
-
-    white-space: nowrap;
-  }
-  .textbox {
-    position: absolute;
-    width: 432px;
-    height: 37px;
-    top: 22px;
-    left: 935px;
-    background-color: #ffffff;
-    border-radius: 4px;
-    border: 1px solid;
-    border-color: #9095a1;
-  }
-  
-  .text-wrapper-12 {
-    position: absolute;
-    top: 7px;
-    left: 34px;
-    color: #bdc1ca;
-    font-size: 14px;
-    white-space: nowrap;
-  }
-  
-  .search {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 10px;
-    left: 12px;
-  }
-  
-  .dropdown-button {
-    position: absolute;
-    width: 148px;
-    height: 37px;
-    top: 22px;
-    left: 776px;
-    background-color: #ffffff;
-    border-radius: 4px;
-    border: 1px solid;
-    border-color: #9095a1;
-  }
-  
-  .text-wrapper-13 {
-    top: 7px;
-    left: 12px;
-    color: #171a1f;
-    font-size: 14px;
-    position: absolute;
-    white-space: nowrap;
-  }
- 
-  .navbar {
-    position: absolute;
-    width: 1389px;
-    height: 63px;
-    top: 312px;
-    left: 281px;
-    background-color: #ffffff;
-    border-radius: 4px;
-    box-shadow: 0px 0px 1px #171a1f12, 0px 0px 2px #171a1f1f;
-  }
-  
-  .text-wrapper-14 {
-    left: 1136px;
-    position: absolute;
-    top: 18px;
-    color: #171a1f;
-    font-size: 16px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-15 {
-    left: 25px;
-    position: absolute;
-    top: 18px;
-    color: #171a1f;
-    font-size: 16px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-16 {
-    left: 164px;
-    position: absolute;
-    top: 18px;
-    color: #171a1f;
-    font-size: 16px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-17 {
-    left: 1273px;
-    position: absolute;
-    top: 18px;
-    color: #171a1f;
-    font-size: 16px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-18 {
-    left: 806px;
-    position: absolute;
-    top: 18px;
-    color: #171a1f;
-    font-size: 16px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-19 {
-    left: 912px;
-    position: absolute;
-    top: 18px;
-    color: #171a1f;
-    font-size: 16px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-20 {
-    left: 1019px;
-    position: absolute;
-    top: 18px;
-    color: #171a1f;
-    font-size: 16px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .p {
-    position: absolute;
-    top: 425px;
-    left: 452px;
-    color: #171a1f;
-    font-size: 20px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-21 {
-    position: absolute;
-    top: 385px;
-    left: 452px;
-    color: #171a1f;
-    font-size: 20px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-22 {
-    position: absolute;
-    top: 390px;
-    left: 1421px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-23 {
-    top: 449px;
-    position: absolute;
-    left: 1421px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-24 {
-    top: 390px;
-    left: 1216px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-25 {
-    top: 390px;
-    left: 1110px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-26 {
-    top: 449px;
-    left: 1110px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-27 {
-    top: 449px;
-    left: 1216px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-
-  .text-wrapper-28 {
-    top: 390px;
-    left: 1323px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-29 {
-    top: 449px;
-    left: 1323px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-30 {
-    top: 390px;
-    position: absolute;
-    left: 1564px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-31 {
-    top: 449px;
-    position: absolute;
-    left: 1564px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-32 {
-    top: 390px;
-    left: 330px;
-    color: #9095a1;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-33 {
-    top: 449px;
-    left: 330px;
-    color: #9095a1;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-34 {
-    top: 145px;
-    left: 284px;
-    color: #171a1f;
-    font-size: 40px;
-    position: absolute;
-    white-space: nowrap;
-  }
-  .text-wrapper-35 {
-    top: 536px;
-    position: absolute;
-    left: 452px;
-    color: #171a1f;
-    font-size: 20px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-36 {
-    top: 498px;
-    position: absolute;
-    left: 452px;
-    color: #171a1f;
-    font-size: 20px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-37 {
-    top: 503px;
-    position: absolute;
-    left: 1421px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-38 {
-    top: 562px;
-    position: absolute;
-    left: 1421px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-39 {
-    top: 503px;
-    left: 1216px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-40 {
-    top: 503px;
-    left: 1110px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-41 {
-    top: 562px;
-    left: 1110px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-42 {
-    top: 562px;
-    left: 1216px;
-    color: #171a1f;
-    position: absolute;
-    font-weight: 400;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  
-  .text-wrapper-43 {
-    top: 503px;
-    left: 1323px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-44 {
-    top: 562px;
-    left: 1323px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-45 {
-    top: 503px;
-    position: absolute;
-    left: 1564px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-46 {
-    top: 562px;
-    position: absolute;
-    left: 1564px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-47 {
-    top: 503px;
-    left: 330px;
-    color: #9095a1;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-48 {
-    top: 562px;
-    left: 330px;
-    color: #9095a1;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  .text-wrapper-49 {
-    top: 649px;
-    position: absolute;
-    left: 452px;
-    color: #171a1f;
-    font-size: 20px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-50 {
-    top: 611px;
-    position: absolute;
-    left: 452px;
-    color: #171a1f;
-    font-size: 20px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-51 {
-    top: 616px;
-    position: absolute;
-    left: 1421px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-52 {
-    top: 675px;
-    position: absolute;
-    left: 1421px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-53 {
-    top: 616px;
-    left: 1216px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-54 {
-    top: 616px;
-    left: 1110px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-55 {
-    top: 675px;
-    left: 1110px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-56 {
-    top: 675px;
-    left: 1216px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  .text-wrapper-57 {
-    top: 616px;
-    left: 1323px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-58 {
-    top: 675px;
-    left: 1323px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-59 {
-    top: 616px;
-    position: absolute;
-    left: 1564px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-60 {
-    top: 675px;
-    position: absolute;
-    left: 1564px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-61 {
-    top: 616px;
-    left: 330px;
-    color: #9095a1;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-62 {
-    top: 675px;
-    left: 330px;
-    color: #9095a1;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  .text-wrapper-63 {
-    top: 762px;
-    position: absolute;
-    left: 452px;
-    color: #171a1f;
-    font-size: 20px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-64 {
-    top: 724px;
-    position: absolute;
-    left: 452px;
-    color: #171a1f;
-    font-size: 20px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-65 {
-    top: 729px;
-    position: absolute;
-    left: 1421px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-66 {
-    top: 788px;
-    position: absolute;
-    left: 1421px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-67 {
-    top: 729px;
-    left: 1216px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-68 {
-    top: 729px;
-    left: 1110px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-69 {
-    top: 788px;
-    left: 1110px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-70 {
-    top: 788px;
-    left: 1216px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  .text-wrapper-71 {
-    top: 729px;
-    left: 1323px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-72 {
-    top: 788px;
-    left: 1323px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-73 {
-    top: 729px;
-    position: absolute;
-    left: 1564px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-74 {
-    top: 788px;
-    position: absolute;
-    left: 1564px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-75 {
-    top: 729px;
-    left: 330px;
-    color: #9095a1;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-76 {
-    top: 788px;
-    left: 330px;
-    color: #9095a1;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-77 {
-    top: 875px;
-    position: absolute;
-    left: 452px;
-    color: #171a1f;
-    font-size: 20px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-78 {
-    top: 837px;
-    position: absolute;
-    left: 452px;
-    color: #171a1f;
-    font-size: 20px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-79 {
-    top: 842px;
-    position: absolute;
-    left: 1421px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-80 {
-    top: 901px;
-    position: absolute;
-    left: 1421px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-81 {
-    top: 842px;
-    left: 1216px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-82 {
-    top: 842px;
-    left: 1110px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-
-
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-83 {
-    top: 901px;
-    left: 1110px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-84 {
-    top: 901px;
-    left: 1216px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  
-  .text-wrapper-85 {
-    top: 842px;
-    left: 1323px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-86 {
-    top: 901px;
-    left: 1323px;
-    color: #171a1f;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-87 {
-    top: 842px;
-    position: absolute;
-    left: 1564px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-88 {
-    top: 901px;
-    position: absolute;
-    left: 1564px;
-    color: #9095a1;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-89 {
-    top: 842px;
-    left: 330px;
-    color: #9095a1;
-    position: absolute;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-  
-  .text-wrapper-90 {
-    top: 901px;
-    left: 330px;
-    color: #9095a1;
-    position: absolute;
-    font-size: 16px;
-
-    white-space: nowrap;
-  }
-  .footer {
+    }
+    .table td, .table th {
+        border-bottom: 1px lightgray solid; 
+        height: 30px;
+        /* font-size: 15px; */
+    }
+    .num {
+        width: 150px;
+        font-size: 18px
+    }
+    .title {
+        width: 1000px;
+    }
+    .body {
+        height: 50px;
+        text-align: center;
+    }
+    .body .title {
+        text-align: left;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    button {
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
+        border: 0;
+        outline: 1.5px rgb(68, 136, 244) solid;
+        border-radius: 5px;
+        padding-left: 10px;
+        background-color: rgb(164, 199, 255);
+    }
+    button:active {
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
+        border: 0;
+        border-radius: 5px;
+        outline: 1.5px rgb(27, 76, 155) solid;
+        padding-left: 10px;
+        background-color: rgb(68, 136, 244);
+    }
+    .footer {
             position: relative;
             width: 100%;
             height: 100px;
@@ -1030,148 +214,104 @@
             padding-left: 1%;
             padding-top: 1%;
         }
-  </style>
-  <body>
+</style>
+</head>
+<body>
     <header class="header">
-      <div class="logo">
-          <img src="purple.png" class="logoimage">
-      </div>
-      <div id="menu">
-          <ul>
-              <li><a href="#">일반 게시판 ▼</a>
-                  <ul>
-                      <li><a href="#">페어 정보</a></li>
-                      <li><a href="#">뉴스 정보</a></li>
-                  </ul>
-              </li>
-              <li><a href="#">정보 게시판 ▼</a>
-                  <ul>
-                      <li><a href="#">후기 게시판</a></li>
-                      <li><a href="#">레시피 공유 게시판</a></li>
-                  </ul>
-              </li>
-          </ul>
-      </div>
-      <div class="loginbtndiv">
-          <button type="button" class="loginbtn" onclick="login()">로그아웃</button>
-      </div> 
-  </header>
-  <section class="wrapper">
-      <div class="container">
-        <div class="text-wrapper-9">정렬기준 :</div>
-        <div class="text-wrapper-10">작성일자</div>
-        <div class="text-wrapper-11">내림차순</div>
-        <div class="textbox">
-          <div class="text-wrapper-12">Search</div>
+        <div class="logo">
+            <img src="purple.png" class="logoimage">
         </div>
-        <div class="dropdown-button">
-          <div class="text-wrapper-13">작성자</div>
+        <div id="menu">
+            <ul>
+                <li><a href="#">일반 게시판 ▼</a>
+                    <ul>
+                        <li><a href="#">페어 정보</a></li>
+                        <li><a href="#">뉴스 정보</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">정보 게시판 ▼</a>
+                    <ul>
+                        <li><a href="#">후기 게시판</a></li>
+                        <li><a href="#">레시피 공유 게시판</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-      </div>
-      <div class="navbar">
-        <div class="text-wrapper-14">작성자</div>
-        <div class="text-wrapper-15">게시글 번호</div>
-        <div class="text-wrapper-16">게시글 제목</div>
-        <div class="text-wrapper-17">작성일자</div>
-        <div class="text-wrapper-18">댓글수</div>
-        <div class="text-wrapper-19">조회수</div>
-        <div class="text-wrapper-20">좋아요</div>
-      </div>
-      <p class="p">The must have items you should prepare</p>
-      <div class="text-wrapper-21">Amniotic fluid test</div>
-      <div class="text-wrapper-22">Mar Ol</div>
-      <div class="text-wrapper-23">Bucky1005</div>
-      <div class="text-wrapper-24">0</div>
-      <div class="text-wrapper-25">0</div>
-      <div class="text-wrapper-26">0</div>
-      <div class="text-wrapper-27">0</div>
-      <div class="text-wrapper-28">0</div>
-      <div class="text-wrapper-29">0</div>
-      <div class="text-wrapper-30">24. 03. 15</div>
-      <div class="text-wrapper-31">24. 03. 15</div>
-      <div class="text-wrapper-32">114053</div>
-      <div class="text-wrapper-33">114052</div>
-      <div class="text-wrapper-34">레시피 공유 게시판</div>
-      <p class="text-wrapper-35">The must have items you should prepare</p>
-      <div class="text-wrapper-36">Amniotic fluid test</div>
-      <div class="text-wrapper-37">Mar Ol</div>
-      <div class="text-wrapper-38">Bucky1005</div>
-      <div class="text-wrapper-39">0</div>
-      <div class="text-wrapper-40">0</div>
-      <div class="text-wrapper-41">0</div>
-      <div class="text-wrapper-42">0</div>
-      <div class="text-wrapper-43">0</div>
-      <div class="text-wrapper-44">0</div>
-      <div class="text-wrapper-45">24. 03. 15</div>
-      <div class="text-wrapper-46">24. 03. 15</div>
-      <div class="text-wrapper-47">114051</div>
-      <div class="text-wrapper-48">114050</div>
-      <p class="text-wrapper-49">The must have items you should prepare</p>
-      <div class="text-wrapper-50">Amniotic fluid test</div>
-      <div class="text-wrapper-51">Mar Ol</div>
-      <div class="text-wrapper-52">Bucky1005</div>
-      <div class="text-wrapper-53">0</div>
-      <div class="text-wrapper-54">0</div>
-      <div class="text-wrapper-55">0</div>
-      <div class="text-wrapper-56">0</div>
-      <div class="text-wrapper-57">0</div>
-      <div class="text-wrapper-58">0</div>
-      <div class="text-wrapper-59">24. 03. 15</div>
-      <div class="text-wrapper-60">24. 03. 15</div>
-      <div class="text-wrapper-61">114049</div>
-      <div class="text-wrapper-62">114048</div>
-      <p class="text-wrapper-63">The must have items you should prepare</p>
-      <div class="text-wrapper-64">Amniotic fluid test</div>
-      <div class="text-wrapper-65">Mar Ol</div>
-      <div class="text-wrapper-66">Bucky1005</div>
-      <div class="text-wrapper-67">0</div>
-      <div class="text-wrapper-68">0</div>
-      <div class="text-wrapper-69">0</div>
-      <div class="text-wrapper-70">0</div>
-      <div class="text-wrapper-71">0</div>
-      <div class="text-wrapper-72">0</div>
-      <div class="text-wrapper-73">24. 03. 15</div>
-      <div class="text-wrapper-74">24. 03. 15</div>
-      <div class="text-wrapper-75">114047</div>
-      <div class="text-wrapper-76">114046</div>
-      <p class="text-wrapper-77">The must have items you should prepare</p>
-      <div class="text-wrapper-78">Amniotic fluid test</div>
-      <div class="text-wrapper-79">Mar Ol</div>
-      <div class="text-wrapper-80">Bucky1005</div>
-      <div class="text-wrapper-81">0</div>
-      <div class="text-wrapper-82">0</div>
-      <div class="text-wrapper-83">0</div>
-      <div class="text-wrapper-84">0</div>
-      <div class="text-wrapper-85">0</div>
-      <div class="text-wrapper-86">0</div>
-      <div class="text-wrapper-87">24. 03. 15</div>
-      <div class="text-wrapper-88">24. 03. 15</div>
-      <div class="text-wrapper-89">114045</div>
-      <div class="text-wrapper-90">114044</div>
-      <button class="div-wrapper"><div class="text-wrapper-8">게시글 작성</div></button>
+        <div class="loginbtndiv">
+            <button type="button" class="loginbtn" onclick="login()">로그아웃</button>
+        </div> 
+    </header>
+    <section class="wrapper">
+<table class="table">
+    <tr><td class="post" colspan="6"><h1>레시피 공유 게시판</h1></td> <td><button onclick="location.href='write.html'">게시글 작성</button></td></tr>
+    <tr class="header2"><td colspan ="2">정렬기준 &nbsp; &nbsp; 작성일자 &nbsp; 내림차순</td></tr> 
+    <tr class="header1">
+        <td class="num">게시글 번호</td>
+        <td class="title">게시글 제목</td>
+        <td>댓글수</td>
+        <td>조회수</td>
+        <td>좋아요</td>
+        <td>작성자</td>
+        <td>작성일자</td>
+    </tr>
+    <script>
+       
+        var i
+        
+        for (i = 10; i > 0; i--) if(i % 2 == 0){
+            document.write("<tr class='body'>");
+            document.write("<td>" + 14043+ i +"</td>");
+            document.write("<td class='title clickable-cell'>Amniotic fluid test.</td>"); 
+            document.write("<td>0</td>");
+            document.write("<td>0</td>");
+            document.write("<td>0</td>");    
+            document.write("<td>Mar Ol</td>"); 
+            document.write("<td>24-03-15</td>");
+            document.write("</tr>");
+        }else{
+            document.write("<tr class='body'>");
+            document.write("<td>" + 14043+ i +"</td>");
+            document.write("<td class='title clickable-cell'>The must have items you should prepare.</td>");
+            document.write("<td>0</td>");
+            document.write("<td>0</td>");
+            document.write("<td>0</td>"); 
+            document.write("<td>Bucky1005</td>"); 
+            document.write("<td>24-03-15</td>");
+            document.write("</tr>");
+          }
+       </script>
+</table>
+<script>
+  var clickableCells = document.querySelectorAll(".clickable-cell");
+  clickableCells.forEach(function(cell) {
+    cell.addEventListener("click", function() {
+      alert("Clicked cell with content: " + this.textContent);
+    });
+  });
+</script>
+<br>
+</body>
+</section>
+<footer class="footer">
+    <div class="leftthings">
+        <p>
+            <span class="ahub">AHUB</span>
+            <span>서비스 소개</span>
+            <span> | </span>
+            <span>서비스 약관</span>
+            <span> | </span>
+            <span>개인정보 처리방침</span>
+            <span> | </span>
+            <span>채용</span>
+        </p>
     </div>
-  </section>
-    <footer class="footer">
-      <div class="leftthings">
-          <p>
-              <span class="ahub">AHUB</span>
-              <span>서비스 소개</span>
-              <span> | </span>
-              <span>서비스 약관</span>
-              <span> | </span>
-              <span>개인정보 처리방침</span>
-              <span> | </span>
-              <span>채용</span>
-          </p>
-      </div>
-      <div class="rightthings">
-          <p>
-              <span>Team Phoenix | 대표: 백동현 | 사업자등록번호:472-56-00332</span><br>
-              <span>주소: 서울특별시 동작구 보라매로 87 SFC빌딩 3층</span><br>
-              <span>Copyright@2024XI#CIQ ALL RIGHTS RESERVED</span>
-          </p>
-      </div>
-  </footer>
-  </body>
+    <div class="rightthings">
+        <p>
+            <span>Team Phoenix | 대표: 백동현 | 사업자등록번호:472-56-00332</span><br>
+            <span>주소: 서울특별시 동작구 보라매로 87 SFC빌딩 3층</span><br>
+            <span>Copyright@2024XI#CIQ ALL RIGHTS RESERVED</span>
+        </p>
+    </div>
+</footer>
+</body>
 </html>
-

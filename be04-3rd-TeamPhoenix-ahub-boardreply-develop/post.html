@@ -73,6 +73,7 @@
     .body .title {
         text-align: left;
         font-weight: bold;
+        cursor: pointer;
     }
     button {
         width: 100px;
@@ -254,29 +255,40 @@
         <td>작성일자</td>
     </tr>
     <script>
+       
         var i
         
         for (i = 10; i > 0; i--) if(i % 2 == 0){
             document.write("<tr class='body'>");
             document.write("<td>" + 14043+ i +"</td>");
-            document.write("<td class='title'>Amniotic fluid test.</td>"); 
+            document.write("<td class='title clickable-cell'>Amniotic fluid test.</td>"); 
             document.write("<td>0</td>");
             document.write("<td>0</td>");
             document.write("<td>0</td>");    
             document.write("<td>Mar Ol</td>"); 
             document.write("<td>24-03-15</td>");
             document.write("</tr>");
-        }else{document.write("<tr class='body'>");
+        }else{
+            document.write("<tr class='body'>");
             document.write("<td>" + 14043+ i +"</td>");
-            document.write("<td class='title'>The must have items you should prepare.</td>");
+            document.write("<td class='title clickable-cell'>The must have items you should prepare.</td>");
             document.write("<td>0</td>");
             document.write("<td>0</td>");
             document.write("<td>0</td>"); 
             document.write("<td>Bucky1005</td>"); 
             document.write("<td>24-03-15</td>");
-            document.write("</tr>");}
+            document.write("</tr>");
+          }
        </script>
 </table>
+<script>
+  var clickableCells = document.querySelectorAll(".clickable-cell");
+  clickableCells.forEach(function(cell) {
+    cell.addEventListener("click", function() {
+      alert("Clicked cell with content: " + this.textContent);
+    });
+  });
+</script>
 <br>
 </body>
 </section>
