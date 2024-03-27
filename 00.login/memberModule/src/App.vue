@@ -1,6 +1,7 @@
 <script setup>
 import registPage from './views/registPage.vue';
 import loginPage from './views/loginPage.vue';
+import profilePage from './views/pofilePage.vue';
 // import { RouterLink, RouterView } from 'vue-router';
 </script>
 
@@ -10,7 +11,8 @@ import loginPage from './views/loginPage.vue';
   <main>
     <!-- <RouterView/> -->
     <!-- <registPage /> -->
-    <loginPage />
+    <!-- <loginPage /> -->
+    <profilePage />
   </main>
   <footer>
 
