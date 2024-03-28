@@ -34,7 +34,7 @@
             <button class="quit-btn">회원 탈퇴</button>
         </span>
     </div>
-    <button @click="getData"></button>
+    <!-- <button @click="getData"></button> 버튼 누르면 axios 동작되도록 할 때 -->
 </template>
 
 <script setup>
@@ -46,8 +46,9 @@ const profile = ref({
     info: {}    // promise 타입으로 넘어온 객체의 데이터를 사용하기 위해 info 배열에 담아서 꺼내오도록 함
 });
 
-const getData = async(e) => {
+const getData = async (e) => {
     axios.get(
+        // localhost 포트번호 변경, /api 붙이기
         "http://localhost:5174/api/member/findMyprofile/user01"
     ).then((response) => {
         // console.log(response.data);
@@ -55,7 +56,7 @@ const getData = async(e) => {
             profile.value = { info: response.data };        // profile 객체의 info 배열에 넘어온 데이터를 저장
             console.log('response.data: ', response.data)
             console.log('profile: ', profile.value);
-            console.log('profile.info: ', profile.value.info)
+            // console.log('profile.info: ', profile.value.info)
         }
     }).catch((e) => {
         console.log('데이터 못가져왔다')

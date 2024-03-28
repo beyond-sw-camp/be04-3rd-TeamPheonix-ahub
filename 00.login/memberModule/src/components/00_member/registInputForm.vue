@@ -21,12 +21,12 @@
         <div class="space">
             <span @click="changeRouter">Already have an account? <a href="#">Log in</a></span>
         </div>
-        <button @click.prevent="validateForm()">Sign up</button>
+        <button @click.prevent="[validateForm(), postData()]">Sign up</button>
     </form>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
 const member_id = ref('');
@@ -36,26 +36,27 @@ const member_addr = ref('');
 const member_email = ref('');
 const member_phone = ref('');
 
-// // const post = () => {
-//     const response = axios.post("http://localhost:8000/member/regist", {
-//         memberId: member_id.value,
-//         memberPwd: member_pwd.value,
-//         memberName: member_name.value,
-//         memberAddr: member_addr.value,
-//         memberEmail: member_email.value,
-//         memberPhone: member_phone.value,
-//     }
-//     ).then((response) => {
-//         if (response.status == 201) {
-//             alert(`${member_id.value}님 회원 가입이 완료되었습니다.`)
-//             console.log('response status: ', response.status);
-//             console.log('response data: ', response.data);
-//         }
-//     }).catch((e) => {
-//         console.log('회원 가입에 실패하였습니다.');
-//         // DB 조회 후 중복되는 값이 있는지 확인하는 코드 추후에 추가
-//     })
-// };
+const postData = async () => {
+    // localhost 포트번호 변경, /api 붙이기
+    await axios.post("http://localhost:5174/api/member/regist", {
+        memberId: member_id.value,
+        memberPwd: member_pwd.value,
+        memberName: member_name.value,
+        memberAddr: member_addr.value,
+        memberEmail: member_email.value,
+        memberPhone: member_phone.value,
+    }
+    ).then((response) => {
+        if (response.status == 201) {
+            alert(`${member_id.value}님 회원 가입이 완료되었습니다.`)
+            console.log('response status: ', response.status);
+            console.log('response data: ', response.data);
+        }
+    }).catch((e) => {
+        console.log('회원 가입에 실패하였습니다.');
+        // DB 조회 후 중복되는 값이 있는지 확인하는 코드 추후에 추가
+    })
+};
 
 function validateForm() {
     var agreementCheckbox = document.getElementById("agree_policy");
@@ -80,7 +81,7 @@ function validateForm() {
         alert("회원 가입 약관에 동의해주세요.");
         return false;
     } else {
-        console.log('회원 가입 완료')
+        console.log('회원 정보 입력 확인')
         return true;
     }
 }

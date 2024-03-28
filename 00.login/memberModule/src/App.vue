@@ -14,9 +14,9 @@ import { inject } from 'vue'
   </header>
   <main>
     <!-- <RouterView/> -->
-    <!-- <registPage /> -->
+    <registPage />
     <!-- <loginPage /> -->
-    <profilePage />
+    <!-- <profilePage /> -->
   </main>
   <footer>
 
