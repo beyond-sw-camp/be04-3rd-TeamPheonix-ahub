@@ -46,10 +46,12 @@ const profile = ref({
     info: {}    // promise 타입으로 넘어온 객체의 데이터를 사용하기 위해 info 배열에 담아서 꺼내오도록 함
 });
 
+const currentMember = localStorage.getItem('member_id');
+
 const getData = async (e) => {
     axios.get(
         // localhost 포트번호 변경, /api 붙이기
-        "http://localhost:5175/api/member/findMyprofile/bucky1005"
+        `http://localhost:5175/api/member/findMyprofile/${currentMember}`
     ).then((response) => {
         // console.log(response.data);
         if (response.status == 200) {
