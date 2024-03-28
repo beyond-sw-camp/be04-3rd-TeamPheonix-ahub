@@ -1,13 +1,13 @@
 <script setup>
-    // import Header from './components/Header.vue';
+    import Header from './components/Header.vue';
     import FairPost from './components/fairpost/FairPost.vue';
 </script>
 
 <template>
     <Header></Header>
-        <main>
-            <FairPost></FairPost>
-        </main>
+    <main>
+        <FairPost></FairPost>
+    </main>
 </template>
 
 
