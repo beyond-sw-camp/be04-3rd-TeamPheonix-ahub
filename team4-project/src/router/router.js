@@ -14,7 +14,7 @@ const router = createRouter({
             component: () => import('../views/MainPage.vue')
         },
         {
-            path: '/post/content/6',
+            path: '/post/content/:id', 
             component: () => import('../views/PostReplyView.vue')
         },
         {

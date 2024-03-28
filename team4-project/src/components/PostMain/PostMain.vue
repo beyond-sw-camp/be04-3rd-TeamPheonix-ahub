@@ -26,7 +26,7 @@
     <tbody>
         <tr v-for="post in posts" :key="post.postId" class="allpost">
             <td>{{ id++ }}</td>
-            <td><RouterLink to="/post/content/6" class="boardname">{{ post.postTitle }}</RouterLink></td>
+            <td class="boardname" @click="changeRouter(post.postId)"> {{ post.postTitle }}</td>
             <td>{{ post.countReply }}</td>
             <td>0</td>
             <td>{{ post.likeAmount }}</td>
@@ -40,6 +40,8 @@
     import { RouterLink, RouterView } from 'vue-router';
     import axios from "axios";
     import { onMounted, ref } from "vue";
+    import router from '@/router/router';
+    import { useRoute } from 'vue-router';
 
     const posts = ref([]);
     const id = 1;
@@ -52,6 +54,13 @@
             console.log(posts.value[0].postTitle);
         })
     });
+
+
+    function changeRouter(id) {
+        const postId = id;
+        console.log(postId);
+        router.push(`/post/content/${postId}`)
+    }
 </script>
 
 <style scoped>

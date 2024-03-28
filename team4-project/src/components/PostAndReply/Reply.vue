@@ -3,7 +3,7 @@
         <h2 class="replytitle">댓글</h2>
     </div>
     <hr class="replyline">
-    <div class="allreply" v-for="reply in replys" :key="replys.replyId">
+    <div class="allreply" v-for="reply in replys" :key="replys.replyId" v-if="type == true">
         <div class="replywriterdiv">
             <p>{{reply.memberNickname}}</p>
         </div>
@@ -22,6 +22,9 @@
                 </button>
             </form>
         </div>
+    </div>
+    <div class="noreply" v-if=" type == false" >
+        <p>댓글이 없습니다.</p>
     </div>
     
     <hr class="replyregistline">
@@ -43,19 +46,26 @@
 <script setup>
     import axios from "axios";
     import { onMounted, ref } from "vue";
+    import { useRoute } from "vue-router";
 
     // 초기 데이터 생성
     const replys = ref([]);
+    const postId = useRoute();
+    const type = ref(true);
 
     // 마운트 시점에 데이터 호출
     onMounted(async () =>{
-        axios.get("http://localhost:8000/reply/board/replies/6")
+        axios.get(`http://localhost:8000/reply/board/replies/${postId.params.id}`)
         .then(response => {
             replys.value = response.data;
             console.log(replys.value);
-            console.log(replys.value[0].replyContent);
+            // console.log(replys.value[0].replyContent == null);
+            if(replys.value.length == 0){
+                type.value = false;
+            }
         })
     });
+    
 </script>
 
 <style scoped>
@@ -154,6 +164,12 @@
             justify-content: flex-start;
             width: 100%;
             font-size:12px;
+        }
+
+        .noreply {
+            width: 100%;
+            font-size:12px;
+            text-align: center;
         }
 
         .registreplywriterdiv{

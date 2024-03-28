@@ -27,16 +27,20 @@
 </template>
 
 <script setup>
+    import router from '@/router/router';
     import Reply from './Reply.vue';
     import axios from "axios";
     import { ref, onBeforeMount } from "vue";
+    import {useRoute} from "vue-router";
 
     const posts = ref({
         result: {}
     });
 
+    const postId = useRoute();
+
     const fetchPosts = () => {
-        axios.get("http://localhost:8000/post/content/6")
+        axios.get(`http://localhost:8000/post/content/${postId.params.id}`)
         .then(response => {
             posts.value = response.data;
             console.log('post', posts);
