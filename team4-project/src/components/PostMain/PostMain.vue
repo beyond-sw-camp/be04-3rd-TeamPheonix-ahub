@@ -13,10 +13,10 @@
                 <button onclick="" class="writebutton">게시글 작성</button>
             </td>
         </tr>
-        <hr class="titleLine">
+        <!-- <hr class="titleLine"> -->
         <tr class="header1">
             <td class="num">게시글 번호</td>
-            <td class="boardname">게시글 제목</td>
+            <td>게시글 제목</td>
             <td>댓글수</td>
             <td>조회수</td>
             <td>좋아요</td>
@@ -25,11 +25,11 @@
         </tr>
     <tbody>
         <tr v-for="post in posts" :key="post.postId" class="allpost">
-            <td>{{ post.postId }}</td>
-            <td><RouterLink to="/post/content/6">{{ post.postTitle }}</RouterLink></td>
+            <td>{{ id++ }}</td>
+            <td><RouterLink to="/post/content/6" class="boardname">{{ post.postTitle }}</RouterLink></td>
+            <td>{{ post.countReply }}</td>
             <td>0</td>
-            <td>0</td>
-            <td>0</td>
+            <td>{{ post.likeAmount }}</td>
             <td>{{ post.memberNickname }}</td>
             <td>{{ post.postDate }}</td>
         </tr>
@@ -42,6 +42,7 @@
     import { onMounted, ref } from "vue";
 
     const posts = ref([]);
+    const id = 1;
 
     onMounted(async () =>{
         axios.get("http://localhost:8000/post/posts")
@@ -62,6 +63,11 @@
         border-radius: 5px;
         border-collapse: collapse;
         border-top: none;
+    }
+
+    .boardname {
+        text-decoration: none;
+        color: black;
     }
 
     .boardTitle {
