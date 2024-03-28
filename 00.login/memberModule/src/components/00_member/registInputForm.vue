@@ -45,7 +45,7 @@ const postData = async () => {
         memberAddr: member_addr.value,
         memberEmail: member_email.value,
         memberPhone: member_phone.value,
-    }
+    },{ "Content-Type": "application/json", withCredentials: true }
     ).then((response) => {
         if (response.status == 201) {
             alert(`${member_id.value}님 회원 가입이 완료되었습니다.`)

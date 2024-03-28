@@ -2,25 +2,55 @@
     <form class="align">
         <div class="input-form">
             <label for="member_id">아이디</label><br>
-            <input class="input-style" type="text" id="member_id" name="member_id"><br>
+            <input class="input-style" type="text" id="member_id" v-model.trim="member_id"><br>
             <div class="span-margin">
                 <input type="checkbox" id="remember_id">
                 <span>아이디 저장</span>
             </div>
-            <label for="member_id">비밀번호</label><br>
-            <input class="input-style" type="password" id="member_pwd" name="member_pwd"><br>
+            <label for="member_pwd">비밀번호</label><br>
+            <input class="input-style" type="password" id="member_pwd" v-model.trim="member_pwd"><br>
             <div class="find-id-pwd-regist span-margin">
-                <span><a href="#">아이디 찾기</a>&nbsp;|</span>
-                <span><a href="#">비밀번호 찾기</a>&nbsp;| </span>
-                <span><a href="registPage.html">회원 가입</a> &nbsp;</span>
+                <span><a href="#">아이디 찾기</a> | </span>
+                <span><a href="#">비밀번호 찾기</a> | </span>
+                <span><a href="registPage.html">회원 가입</a> </span>
             </div>
         </div>
-        <button @click.prevent="tokenCheck">Login</button>
+        <button @click.prevent="[inputCheck(), tokenData()]">Login</button>
     </form>
 </template>
 
 <script setup>
-function tokenCheck() {
+import { ref } from 'vue';
+import axios from "axios";
+
+const member_id = ref('');
+const member_pwd = ref('');
+
+const tokenData = async () => {
+    await axios.post("http://localhost:5174/api/login",
+    {
+        memberId: member_id.value,
+        memberPwd: member_pwd.value
+    }).then ((response) => {    // then: post 요청 성공 시 동작할 콜백 함수 등록
+        if(response.status == 200) {
+            // document.cookie => cookie에 담긴 모든 정보 확인(쿠키 사용 시)
+            console.log('response status: ', response.status);
+            console.log('response data: ', response.data);
+
+            // 토큰 저장
+            localStorage.setItem('token', response.data.token)
+
+            // 헤더에 담긴 memberId 저장
+            const loginMember = response.headers['memberId']
+            localStorage.setItem('memberId', loginMember)
+        }
+    }).catch ((e) => {
+        console.log('로그인 실패');
+        alert('입력한 정보가 유효하지 않습니다. 아이디와 비밀번호를 확인해주세요.');
+    })
+};
+
+function inputCheck() {
     if(member_id.value == ''){
         alert('아이디를 입력해주세요.');
         return false;
@@ -29,7 +59,9 @@ function tokenCheck() {
         return false;
     } else {
         // 서버 연동하여 토큰값 가져온 후 유효성 검사 코드 추가
-        console.log('로그인 성공');
+        console.log('입력 정보 확인 완료');
+        console.log(member_id.value);
+        console.log(member_pwd.value);
         return true;
     }
 }
