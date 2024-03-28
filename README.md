@@ -28,7 +28,7 @@ Alcohol Hub 프로젝트(이하 Ahub)는 COVID-19 이후 급격하게 성장하�
 
 |Vue 3.0|html|CSS|JavaScript|
 |---|---|---|---|
-|<img src="https://github.com/beyond-sw-camp/be04-3rd-TeamPhoenix-ahub/blob/feature-post-check/img/Vue.png" height="150" />|< "https://github.com/beyond-sw-camp/be04-3rd-TeamPhoenix-ahub/blob/feature-post-check/img/css.png" height="150" />|<img src="https://github.com/beyond-sw-camp/be04-3rd-TeamPhoenix-ahub/blob/feature-post-check/img/html.png" height="150" />|<img src="https://github.com/beyond-sw-camp/be04-3rd-TeamPhoenix-ahub/blob/feature-post-check/img/js.png" height="150" />|
+|<img src="https://github.com/beyond-sw-camp/be04-3rd-TeamPhoenix-ahub/blob/feature-post-check/img/Vue.png" height="150" />|< img src= "https://github.com/beyond-sw-camp/be04-3rd-TeamPhoenix-ahub/blob/feature-post-check/img/css.png" height="150" />|<img src="https://github.com/beyond-sw-camp/be04-3rd-TeamPhoenix-ahub/blob/feature-post-check/img/html.png" height="150" />|<img src="https://github.com/beyond-sw-camp/be04-3rd-TeamPhoenix-ahub/blob/feature-post-check/img/js.png" height="150" />|
 
 <br>
 
