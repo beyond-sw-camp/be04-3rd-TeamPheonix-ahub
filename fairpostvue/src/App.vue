@@ -1,12 +1,14 @@
 <script setup>
     import Header from './components/Header.vue';
-    import FairPost from './components/fairpost/FairPost.vue';
+    // import FairPost from './components/fairpost/FairPost.vue';
+    import FairPostEdit from './components/fairpost/FairPostEdit.vue';
 </script>
 
 <template>
     <Header></Header>
     <main>
-        <FairPost></FairPost>
+        <!-- <FairPost></FairPost> -->
+        <FairPostEdit></FairPostEdit>
     </main>
 </template>
 
