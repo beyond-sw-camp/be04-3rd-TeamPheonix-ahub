@@ -2,7 +2,8 @@
     <div class="wrapper">
         <div class="left-box item img-box-wrapper">
             <div class="img-box">
-                <img src="/00.TeamProjects/03.phoenix-front/00.login/resource/cheese-cat.jpg" alt="profile" class="profile-img">
+                <img src="/00.TeamProjects/03.phoenix-front/00.login/resource/cheese-cat.jpg" alt="profile"
+                    class="profile-img">
             </div>
         </div>
         <div class="right-box item">
@@ -11,7 +12,7 @@
                 내 소개가 아직 없습니다!
             </p>
         </div>
-        
+
         <div class="left-box item">
             <div>이메일</div>
             <br>
@@ -20,11 +21,11 @@
             <div>핸드폰 번호</div>
         </div>
         <div class="right-box item">
-            <div>{{profile.info.memberEmail}}</div>
+            <div>{{ profile.info.memberEmail }}</div>
             <br>
-            <div>{{profile.info.memberAddr}}</div>
+            <div>{{ profile.info.memberAddr }}</div>
             <br>
-            <div>{{profile.info.memberPhone}}</div>
+            <div>{{ profile.info.memberPhone }}</div>
         </div>
     </div>
     <div class="quit-wrapper">
@@ -33,10 +34,11 @@
             <button class="quit-btn">회원 탈퇴</button>
         </span>
     </div>
+    <button @click="getData"></button>
 </template>
 
 <script setup>
-import { ref, onBeforeMount } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
 // axios로 받아온 데이터를 저장할 profile 객체 생성
@@ -44,102 +46,110 @@ const profile = ref({
     info: {}    // promise 타입으로 넘어온 객체의 데이터를 사용하기 위해 info 배열에 담아서 꺼내오도록 함
 });
 
-const get = (e) => {
-    axios({
-        url: "http://localhost:8000/member/findMyprofile/user02"
-    }).then((response) => {
-        if(response.status==200){
+const getData = async(e) => {
+    axios.get(
+        "http://localhost:5174/api/member/findMyprofile/user01"
+    ).then((response) => {
+        // console.log(response.data);
+        if (response.status == 200) {
             profile.value = { info: response.data };        // profile 객체의 info 배열에 넘어온 데이터를 저장
             console.log('response.data: ', response.data)
-            console.log('profile: ', profile);
-            console.log('profile.info: ', profile.info)}
-        }).catch((e) => {
-            console.log('데이터 못가져왔다')
-        });
-    }
-    onBeforeMount(() => {
-        get();
-    })
+            console.log('profile: ', profile.value);
+            console.log('profile.info: ', profile.value.info)
+        }
+    }).catch((e) => {
+        console.log('데이터 못가져왔다')
+    });
+
+    // fetch('http://localhost:5174/api/member/findMyprofile/user01')
+    // .then((res) => res.json())
+    // .then((data) => console.log(data));
+    // const data = await response.json();
+    // console.log(data);
+}
+onMounted(() => {
+    getData();
+})
 
 
 </script>
 
 <style scoped>
-    .wrapper {
-        display: grid;
-        grid-template-columns: 0.4fr 0.6fr;
-        grid-template-rows: 1fr 1fr;
-        grid-gap: 20px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        margin: 10px;
-        padding: 40px;
-        background-color: #f9f9f9;
-    }
+.wrapper {
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 40px;
+    background-color: #f9f9f9;
+}
 
-    .align {
-        text-align: center;
-    }
+.align {
+    text-align: center;
+}
 
-    .quit-wrapper {
-        text-align: right;
-    }
+.quit-wrapper {
+    text-align: right;
+}
 
-    span>button {
-        color: white;
-        width: 80px;
-        height: 40px;
-        margin: 5px;
-        padding: 10px 10px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 12px;
-        font-weight: bold;
-    }
+span>button {
+    color: white;
+    width: 80px;
+    height: 40px;
+    margin: 5px;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
 
-    .modify-btn {
-        background-color: #6D31ED;
-    }
+.modify-btn {
+    background-color: #6D31ED;
+}
 
-    .quit-btn {
-        background-color: #5c5c5c;
-    }
+.quit-btn {
+    background-color: #5c5c5c;
+}
 
-    .img-box-wrapper {
-        justify-self: end;
-    }
+.img-box-wrapper {
+    justify-self: end;
+}
 
-    .img-box {
-        width: 150px;
-        height: 150px;
-        border-radius: 70%;
-        overflow: hidden;
-    }
+.img-box {
+    width: 150px;
+    height: 150px;
+    border-radius: 70%;
+    overflow: hidden;
+}
 
-    .profile-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    .introduction-box {
-        width: 60%;
-        height: 50%;
-        font-size: 12px;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        padding: 1rem;
-        border-radius: 4px;
-        background-color: #ccc;
-    }
+.introduction-box {
+    width: 60%;
+    height: 50%;
+    font-size: 12px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: #ccc;
+}
 
-    .left-box {
-        padding: 20px;
-        text-align: right;
-    }
+.left-box {
+    padding: 20px;
+    text-align: right;
+}
 
-    .right-box {
-        padding: 20px;
-    }
+.right-box {
+    padding: 20px;
+}
 </style>
