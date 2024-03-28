@@ -17,7 +17,7 @@
         </div>
         <div class="closebuttondiv">
             <form action="" name="deleteReply" method="post">
-                <button type="button" class="closebutton" onclick="deleteReplyCheck()">
+                <button type="button" class="closebutton" @click="removeReply(reply.replyId)">
                     <img src="/Users/baekdonghyeon/Desktop/front project/ahub-project/src/assets/free-icon-close-button-61155 (1).png">
                 </button>
             </form>
@@ -44,7 +44,8 @@
 </template>
 
 <script setup>
-    import axios from "axios";
+    import router from "@/router/router";
+import axios from "axios";
     import { onMounted, ref } from "vue";
     import { useRoute } from "vue-router";
 
@@ -65,6 +66,20 @@
             }
         })
     });
+
+    const removeReply = async (replyId) => {
+        try{
+            if(confirm('댓글을 삭제하시겠습니까?') == false){
+                return;
+            }
+            console.log(replyId)
+            await axios.delete(`/api/reply/delete/${replyId}`);
+            location.reload(true);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    
     
 </script>
 
@@ -193,7 +208,7 @@
         }
 
         textarea::placeholder {
-            font-size:15px;
+            font-size:12px;
             padding-left: 1%;
             padding-top: 1%;
         }

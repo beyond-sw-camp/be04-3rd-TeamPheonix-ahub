@@ -25,7 +25,7 @@
         </tr>
     <tbody>
         <tr v-for="post in posts" :key="post.postId" class="allpost">
-            <td>{{ id++ }}</td>
+            <td>{{ count++ }}</td>
             <td class="boardname" @click="changeRouter(post.postId)"> {{ post.postTitle }}</td>
             <td>{{ post.countReply }}</td>
             <td>0</td>
@@ -44,7 +44,7 @@
     import { useRoute } from 'vue-router';
 
     const posts = ref([]);
-    const id = 1;
+    const count = 1;
 
     onMounted(async () =>{
         axios.get("http://localhost:8000/post/posts")
@@ -77,6 +77,7 @@
     .boardname {
         text-decoration: none;
         color: black;
+        cursor: pointer;
     }
 
     .boardTitle {
