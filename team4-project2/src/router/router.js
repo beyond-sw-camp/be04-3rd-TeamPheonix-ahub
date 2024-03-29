@@ -39,9 +39,8 @@ const router = createRouter({
         },
         {
             path: '/member/findMyprofile/:id',
-            component: () => import('../views/profilePage.vue')
+            component: () => import('../views/profilePage.vue'),
         }
-
     ]
 })
 

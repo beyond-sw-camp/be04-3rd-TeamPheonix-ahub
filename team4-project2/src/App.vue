@@ -1,16 +1,38 @@
 <script setup>
+import { ref, watch } from 'vue';
 import { RouterLink, RouterView, useRouter } from 'vue-router';
 
 const router = useRouter();
-
 function login() {
   router.push('/login');
 }
 
 function profile() {
-  router.push('/member/findMyprofile/user02');
+  router.push('/member/findMyprofile/:id');
 }
 
+const loginState = ref('로그인');
+let loginCheck = localStorage.getItem('member_id');
+
+const clickLoginBtn = () => {
+    if (loginState.value == '로그인') {
+    } else {
+        localStorage.clear();
+        loginCheck = null;
+        loginState.value = '로그인';
+    }
+    router.push('/login');
+};
+
+if (localStorage.getItem('member_id') !== null) {
+  loginState.value = '로그아웃';
+}
+
+// watch(loginCheck, (newValue, oldValue) => {
+//   if(newValue !== null) {
+//     loginState.value = '로그아웃';
+//   }
+// });
 
 </script>
 <template>
@@ -47,7 +69,9 @@ function profile() {
       <div class="icon-div">
         <i class="bi bi-person-circle iconSize" @click="profile"></i>
       </div>
-      <button type="button" class="loginbtn" @click="login">Log in</button>
+      <!-- <button @click="storageClear">clear</button> -->
+      <button type="button" class="loginbtn" @click="clickLoginBtn">{{ loginState }}</button>
+      <!-- <button type="button" class="loginbtn" @click="login">{{ loginState }}</button> -->
     </nav>
     <!-- <div class="logo">
       <RouterLink to="/"><img src="@/assets/img/purple.png" class="logoimage"></RouterLink>
@@ -134,7 +158,7 @@ function profile() {
   float: right;
   /* margin-top: 1.5%; */
   margin-right: 2%;
-  width: 80px;
+  width: 100px;
 }
 
 .logoimage {

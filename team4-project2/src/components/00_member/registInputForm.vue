@@ -40,7 +40,7 @@ const member_phone = ref('');
 
 const postData = async () => {
     // localhost 포트번호 변경, /api 붙이기
-    await axios.post("http://localhost:5175/api/member/regist", {
+    await axios.post("http://localhost:5173/api/member/regist", {
         memberId: member_id.value,
         memberPwd: member_pwd.value,
         memberName: member_name.value,

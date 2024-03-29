@@ -15,8 +15,8 @@
                 <span><a href="#"><RouterLink to ='/member/regist'>회원 가입</RouterLink></a> </span>
             </div>
         </div>
-        <!-- <button @click.prevent="[inputCheck(), tokenData()]">Login</button> -->
-        <button @click.prevent="[inputCheck(), tokenData(), changeRouter()]">Login</button>
+        <button @click.prevent="[inputCheck(), tokenData()]">Login</button>
+        <!-- <button @click.prevent="[inputCheck(), tokenData(), changeRouter()]">Login</button> -->
     </form>
 </template>
 
@@ -29,12 +29,12 @@ import router from '@/router/router';
 const member_id = ref('');
 const member_pwd = ref('');
 
-const changeRouter = () => {
-    router.push('/member/findMyprofile/:id');
-};
+// const changeRouter = () => {
+//     router.push('/member/findMyprofile/:id');
+// };
 
 const tokenData = async () => {
-    await axios.post("http://localhost:5175/api/login",
+    await axios.post("http://localhost:5173/api/login",
     {
         memberId: member_id.value,
         memberPwd: member_pwd.value
@@ -48,6 +48,8 @@ const tokenData = async () => {
             localStorage.setItem('member_id', member_id.value)
 
             alert('로그인 완료')
+            router.push('/member/findMyprofile/:id');
+
         }
     }).catch ((e) => {
         console.log('로그인 실패');

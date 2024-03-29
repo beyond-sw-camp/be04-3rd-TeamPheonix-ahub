@@ -51,7 +51,7 @@ const currentMember = localStorage.getItem('member_id');
 const getData = async (e) => {
     axios.get(
         // localhost 포트번호 변경, /api 붙이기
-        `http://localhost:5175/api/member/findMyprofile/${currentMember}`
+        `http://localhost:5173/api/member/findMyprofile/${currentMember}`
     ).then((response) => {
         // console.log(response.data);
         if (response.status == 200) {
@@ -89,6 +89,7 @@ onMounted(() => {
     padding: 40px;
     padding-top: 80px;
     background-color: #f9f9f9;
+    width: 1000px;
 }
 
 .align {
