@@ -1,4 +1,38 @@
 <script>
+export default {
+    data() {
+        return {
+            selected1: null,
+            options1: [
+                { value: 1, text: '서울특별시' },
+                { value: 2, text: '부산광역시' },
+                { value: 3, text: '대구광역시' },
+                { value: 4, text: '인천광역시' },
+                { value: 5, text: '광주광역시' },
+                { value: 6, text: '대전광역시' },
+                { value: 7, text: '울산광역시' },
+                { value: 8, text: '세종특별자치시' },
+                { value: 9, text: '경기도' },
+                { value: 10, text: '강원특별자치도' },
+                { value: 11, text: '충청북도' },
+                { value: 12, text: '충청남도' },
+                { value: 13, text: '전북특별자치도' },
+                { value: 14, text: '전라남도' },
+                { value: 15, text: '경상북도' },
+                { value: 16, text: '경상남도' },
+                { value: 17, text: '제주특별자치도' }
+            ],
+            selected2: [],
+            options2: [
+                { text: '맥주', value: '맥주' },
+                { text: '와인', value: '와인' },
+                { text: '위스키', value: '위스키' },
+                { text: '전통주', value: '전통주' },
+                { text: '칵테일', value: '칵테일' }
+            ]
+        }
+    }
+}
 </script>
 
 <template>
@@ -16,12 +50,14 @@
         </div>
         <div class="tags-container1">
             <button class="tagbtn1">제목</button>
-            <textarea id="tagbtn2" class="tagbtn2"></textarea>
+            <input type="text" id="tagbtn2" class="tagbtn2" placeholder="제목을 입력해주세요.">
         </div>
         <div class="tags-container2">
             <button class="tagbtn3">지역/장소</button>
-            <button class="tagbtn4">개최 지역을 선택해 주세요.</button>
-            <button class="tagbtn5">행사 개최 장소를 입력해주세요.</button>
+            <div>
+                <b-form-select v-model="selected1" :options="options1" size="sm" class="tagbtn4"></b-form-select>
+            </div>
+            <input type="text" id="tagbtn5" class="tagbtn5" placeholder="장소 예시: 삼성동 코엑스">
         </div>
         <div class="tags-container3">
             <button class="tagbtn6">시작일/종료일</button>
@@ -31,8 +67,14 @@
         </div>
         <div class="tags-container4">
             <button class="tagbtn6">태그</button>
+            <div class="slot">
+                <b-form-group v-slot="{ ariaDescribedby }">
+                    <b-form-checkbox-group id="checkbox-group-1" v-model="selected2" :options="options2"
+                        :aria-describedby="ariaDescribedby" name="flavour-1"></b-form-checkbox-group>
+                </b-form-group>
+            </div>
         </div>
-        <textarea id="maincontent" class="maincontent"></textarea>
+        <textarea id="maincontent" class="maincontent" placeholder="내용을 입력해주세요."></textarea>
         <div class="dropzone2">
             <div class="cloudicon2">
                 <img src="@/assets/cloudicon.png" alt="cloudicon_img" height="50px" width="50px">
@@ -87,9 +129,9 @@
     text-align: center;
     margin-left: 15%;
     margin-bottom: 20px;
-    margin-top: -12.5%; 
+    margin-top: -12.5%;
     width: 66.5%;
-    height: auto; 
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -157,7 +199,7 @@
     margin-bottom: 13px;
     margin-left: 50%;
     position: relative;
-    top: -235px;
+    top: -220px;
 }
 
 .tagbtn1,
@@ -179,7 +221,12 @@
     resize: none;
 }
 
-.tagbtn2 {
-    height: 15px;
+.tagbtn2,
+.tagbtn5 {
+    height: 40px;
+}
+
+.slot {
+    margin-top: 15px;
 }
 </style>
