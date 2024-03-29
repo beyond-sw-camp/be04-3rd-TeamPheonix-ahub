@@ -16,7 +16,7 @@
         </div>
         <div class="tags-container1">
             <button class="tagbtn1">제목</button>
-            <button class="tagbtn2">게시글 제목을 입력하세요.</button>
+            <textarea id="tagbtn2" class="tagbtn2"></textarea>
         </div>
         <div class="tags-container2">
             <button class="tagbtn3">지역/장소</button>
@@ -32,9 +32,7 @@
         <div class="tags-container4">
             <button class="tagbtn6">태그</button>
         </div>
-        <div class="maincontent">
-            <p>내용 입력하세요.</p>
-        </div>
+        <textarea id="maincontent" class="maincontent"></textarea>
         <div class="dropzone2">
             <div class="cloudicon2">
                 <img src="@/assets/cloudicon.png" alt="cloudicon_img" height="50px" width="50px">
@@ -48,6 +46,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: GmarketSansMedium;
 }
 
 .boardname {
@@ -95,7 +94,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    resize: none;
+    font-size: 14px;
 }
+
 
 .dropzone {
     border: 2px dashed #ccc;
@@ -106,7 +108,7 @@
     margin-top: -3.5%;
     margin-left: 15%;
     margin-right: 52%;
-    height: 230px; 
+    height: 230px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -122,38 +124,50 @@
     margin-left: 15%;
     margin-bottom: 10%;
     width: 66.5%;
-    height: auto; 
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.cloudicon, .cloudicon2 {
+.cloudicon,
+.cloudicon2 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.dropzonetext, .dropzonetext2 {
+.dropzonetext,
+.dropzonetext2 {
     color: #888;
     font-size: 14px;
     margin-bottom: 20px;
 }
 
-.tags-container1, .tags-container2, .tags-container3, .tags-container4 {
+.tags-container1,
+.tags-container2,
+.tags-container3,
+.tags-container4 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
-    margin-bottom: 13px; 
+    margin-bottom: 13px;
     margin-left: 50%;
     position: relative;
-    top: -235px; 
+    top: -235px;
 }
 
-.tagbtn1, .tagbtn2, .tagbtn3, .tagbtn4, .tagbtn5, .tagbtn6, .tagbtn7, .tagbtn8 {
+.tagbtn1,
+.tagbtn2,
+.tagbtn3,
+.tagbtn4,
+.tagbtn5,
+.tagbtn6,
+.tagbtn7,
+.tagbtn8 {
     border: 2px solid rgb(185, 182, 195);
     border-radius: 10px;
     background-color: white;
@@ -162,5 +176,10 @@
     font-weight: bold;
     color: black;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    resize: none;
+}
+
+.tagbtn2 {
+    height: 15px;
 }
 </style>

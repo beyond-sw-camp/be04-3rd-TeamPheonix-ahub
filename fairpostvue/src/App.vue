@@ -1,7 +1,8 @@
 <script setup>
     import Header from './components/Header.vue';
-    // import FairPost from './components/fairpost/FairPost.vue';
+    import FairPost from './components/fairpost/FairPost.vue';
     import FairPostEdit from './components/fairpost/FairPostEdit.vue';
+    import Footer from './components/Footer.vue';
 </script>
 
 <template>
@@ -10,6 +11,7 @@
         <!-- <FairPost></FairPost> -->
         <FairPostEdit></FairPostEdit>
     </main>
+    <Footer></Footer>
 </template>
 
 
